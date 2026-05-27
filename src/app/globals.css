@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #020617; /* slate-950 */
+  --foreground: #f8fafc; /* slate-50 */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space-grotesk), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glowing animation for infected nodes */
+@keyframes infected-pulse {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.6));
+    stroke: #ef4444;
+    stroke-width: 1px;
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 1));
+    stroke: #fca5a5;
+    stroke-width: 2px;
+  }
+  100% {
+    filter: drop-shadow(0 0 4px rgba(239, 68, 68, 0.6));
+    stroke: #ef4444;
+    stroke-width: 1px;
+  }
+}
+
+.infected-node {
+  animation: infected-pulse 2s infinite ease-in-out;
+}
+
+/* Grid background for the simulation area */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
